@@ -1,0 +1,21 @@
+name: Manual Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      category:
+        description: 'Category'
+        required: true
+        type: string
+      subcategory:
+        description: 'Subcategory'
+        required: true
+        type: string
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Category: ${{ github.event.inputs.category }}"
+          echo "Subcategory: ${{ github.event.inputs.subcategory }}"
